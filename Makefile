@@ -6,7 +6,7 @@ ifeq (composer,$(firstword $(MAKECMDGOALS)))
   $(eval $(RUN_ARGS):;@:)
 endif
 
-.PHONY: ci test phpunit cs stan covers composer
+.PHONY: ci test phpunit cs stan covers composer php
 
 DEFAULT_GOAL := ci
 
@@ -31,3 +31,6 @@ covers:
 composer:
 	docker run --rm --interactive --tty --volume $(shell pwd):/app -w /app\
 	 --volume ~/.composer:/composer --user $(shell id -u):$(shell id -g) composer composer --no-scripts $(filter-out $@,$(MAKECMDGOALS))
+
+php:
+	docker-compose run --rm app php -a
