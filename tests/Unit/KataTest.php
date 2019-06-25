@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 /**
  * @licence GNU GPL v2+
  */
-class ProductionClassTest extends TestCase {
+class KataTest extends TestCase {
 
 	public function testGetTrue() {
 		$this->assertTrue( true );
